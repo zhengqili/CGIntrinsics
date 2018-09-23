@@ -43,12 +43,18 @@ class Intrinsics_Model(BaseModel):
         # define tensors
         print("LOAD Unet pix2pix version")
         output_nc = 3
-        self.netG = networks.define_G(opt.input_nc, output_nc, opt.ngf, 
+        model = networks.define_G(opt.input_nc, output_nc, opt.ngf, 
                                         opt.which_model_netG, 'batch', opt.use_dropout, self.gpu_ids)
 
         # # TESTING
-        model_parameters = self.load_network(self.netG, 'G', '_best_SUNCG_saw_iiw_intrinsics')
-        self.netG.load_state_dict(model_parameters)            
+        if not self.isTrain:
+            model_parameters = self.load_network(model, 'G', 'cgintrinsics_iiw_saw_final')
+            model.load_state_dict(model_parameters)
+
+        self.netG = model
+
+        # model_parameters = self.load_network(self.netG, 'G', '_best_SUNCG_saw_iiw_intrinsics')
+        # self.netG.load_state_dict(model_parameters)            
 
         self.lr = opt.lr
         self.old_lr = opt.lr
