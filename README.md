@@ -45,3 +45,4 @@ The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-p
 ```bash
     python test_saw.py
 ```
+Note that we only compute AP% (challenge) mentioned in the paper. If you want to compute original AP%, please refer to https://github.com/lixx2938/unsupervised-learning-intrinsic-images
