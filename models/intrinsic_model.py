@@ -60,15 +60,15 @@ class Intrinsics_Model(BaseModel):
         self.old_lr = opt.lr
         self.netG.train()
 
-        if self.isTrain:            
-            self.criterion_joint = networks.JointLoss() 
-            # initialize optimizers
-            self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
-                                                lr=0.0002, betas=(0.9, 0.999))
-            
-            print('---------- Networks initialized -------------')
-            networks.print_network(self.netG)
-            print('-----------------------------------------------')
+        # if self.isTrain:            
+        self.criterion_joint = networks.JointLoss() 
+        # initialize optimizers
+        self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
+                                            lr=0.0002, betas=(0.9, 0.999))
+        
+        print('---------- Networks initialized -------------')
+        networks.print_network(self.netG)
+        print('-----------------------------------------------')
 
     def set_input(self, input, targets):
         self.num_pair = input.size(0)
