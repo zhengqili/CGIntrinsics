@@ -1,6 +1,6 @@
 # CGIntrinsics
 
-This is the CGIntrinsics implementation described in the paper "CGIntrinsics: Better Intrinsic Image Decomposition through Physically-Based Rendering, Z. Li and N. Snavely, ECCV 2018" (Still Updating, please stay tune).
+This is the CGIntrinsics implementation described in the paper "CGIntrinsics: Better Intrinsic Image Decomposition through Physically-Based Rendering, Z. Li and N. Snavely, ECCV 2018" (Still Updating, please stay tuned).
 
 The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix" and "https://github.com/lixx2938/unsupervised-learning-intrinsic-images". If you use our code for academic purposes, please consider citing:
 
