@@ -17,9 +17,9 @@ The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-p
 
 
 #### Training on the CGIntrinsics dataset:
-* Download the CGIntrinsics dataset (intrinsics_final) from our website: 
-* Download IIW densely connected pair-wise juedgement we precomputed in our website and original images and datta in original IIW link (http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download). 
-* Download SAW list in our website and original data in original SAW website (https://github.com/kovibalu/saw_release).
+* Download the CGIntrinsics dataset (intrinsics_final) from our website: http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/intrinsics_final.zip
+* Download IIW densely connected pair-wise juedgement we precomputed in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/IIW.zip) and original images and data in original IIW link (http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download). 
+* Download SAW list in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/SAW.zip) and original data in original SAW website (https://github.com/kovibalu/saw_release).
 * create a directory in your machine called CGIntrinsics
 * In CGIntrinsics, you should have 3 folders (1) intrinsics_final (2) IIW (3) SAW. You should put original IIW png and json you download from http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download in CGIntrinsics/IIW/data/, and you should put original data you download from https://github.com/kovibalu/saw_release in folders "CGIntrinsics/SAW/saw_images_512" and "CGIntrinsics/SAW/saw_pixel_labels" from original SAW dataset/
 
@@ -31,9 +31,9 @@ The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-p
 ```
 
 #### Evaluation on the IIW/SAW test splits:
-* Download IIW densely connected pair-wise juedgement we precomputed in our website and original images and datta in original IIW link (http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download). 
-* Download SAW list in our website and original data in original SAW website (https://github.com/kovibalu/saw_release).
-* Download pretrained model from (comming next week!) and put it in "checkpoints/test_local/cgintrinsics_iiw_saw_final_net_G.pth"
+* Download IIW densely connected pair-wise juedgement we precomputed in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/IIW.zip) and original images and data in original IIW link (http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download). 
+* Download SAW list in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/SAW.zip) and original data in original SAW website (https://github.com/kovibalu/saw_release).
+* Download pretrained model from (comming soon!) and put it in "checkpoints/test_local/cgintrinsics_iiw_saw_final_net_G.pth"
 * Change to "self.isTrain = False" in python file "/options/train_options.py"
 * In CGIntrinsics, you should have at least 2 folders (1) IIW (2) SAW. You should put original IIW png and json you download from http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download in CGIntrinsics/IIW/data/, and you should put original corresponding folders you download from https://github.com/kovibalu/saw_release in folders "CGIntrinsics/SAW/saw_images_512" and "CGIntrinsics/SAW/saw_pixel_labels".
 * Change to "self.isTrain = False" in python file "/options/train_options.py"
