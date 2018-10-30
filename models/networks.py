@@ -1134,7 +1134,7 @@ class JointLoss(nn.Module):
 
             R_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_R), gt_R, mask_R, 0.5)            
             
-            # using ScaleInvarianceFramework could achieve better performance if we train on both IIW and SAW,
+            # using ScaleInvarianceFramework might achieve better performance if we train on both IIW and SAW,
             # but LinearScaleInvarianceFramework could produce better perforamnce if trained on CGIntrinsics only
 
             S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
@@ -1162,14 +1162,14 @@ class JointLoss(nn.Module):
 
             R_loss = lambda_CG *self.LinearScaleInvarianceFramework(torch.exp(prediction_R), gt_R, mask_R, 0.5)            
 
-            # using ScaleInvarianceFramework could achieve better performance if we train on both IIW and SAW,
+            # using ScaleInvarianceFramework might achieve better performance if we train on both IIW and SAW,
             # but LinearScaleInvarianceFramework could produce better perforamnce if trained on CGIntrinsics only
             S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
             # S_loss = lambda_CG * self.ScaleInvarianceFramework(prediction_S, torch.log(gt_S), mask_S, 0.5)  
 
             reconstr_loss = lambda_CG  * self.w_reconstr * self.SUNCGReconstLoss(torch.exp(prediction_R), torch.exp(prediction_S), mask_img, targets)
             
-            # Why put this? Because the some ground truth shadings are nosiy 
+            # Why put this? Because some ground truth shadings are nosiy 
             Ss_loss = lambda_CG * self.w_ss_dense *  self.BilateralRefSmoothnessLoss(prediction_S, targets, 'S', 2)
 
             total_iiw_loss = 0
