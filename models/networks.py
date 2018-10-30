@@ -1298,13 +1298,9 @@ class JointLoss(nn.Module):
         
         count = float(0) 
 
-        prediction_R = torch.exp(prediction_R)
-        prediction_R = torch.pow(prediction_R, 0.4545)
-
-
         for i in range(0, prediction_R.size(0)):
             prediction_R_np = prediction_R.data[i,:,:,:].cpu().numpy()
-            prediction_R_np = np.transpose(prediction_R_np, (1,2,0))
+            prediction_R_np = np.transpose(np.exp(prediction_R_np * 0.4545), (1,2,0))
 
             # o_h = targets['oringinal_shape'][0].numpy()
             # o_w = targets['oringinal_shape'][1].numpy()
