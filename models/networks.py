@@ -1137,8 +1137,8 @@ class JointLoss(nn.Module):
             # using ScaleInvarianceFramework could achieve better performance if we train on both IIW and SAW,
             # but LinearScaleInvarianceFramework could produce better perforamnce if trained on CGIntrinsics only
 
-            # S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
-            S_loss = lambda_CG * self.ScaleInvarianceFramework(prediction_S, torch.log(gt_S), mask_S, 0.5)  
+            S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
+            # S_loss = lambda_CG * self.ScaleInvarianceFramework(prediction_S, torch.log(gt_S), mask_S, 0.5)  
 
             reconstr_loss = lambda_CG  * self.w_reconstr * self.SUNCGReconstLoss(torch.exp(prediction_R), torch.exp(prediction_S), mask_img, targets)
 
@@ -1164,9 +1164,8 @@ class JointLoss(nn.Module):
 
             # using ScaleInvarianceFramework could achieve better performance if we train on both IIW and SAW,
             # but LinearScaleInvarianceFramework could produce better perforamnce if trained on CGIntrinsics only
-            
-            # S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
-            S_loss = lambda_CG * self.ScaleInvarianceFramework(prediction_S, torch.log(gt_S), mask_S, 0.5)  
+            S_loss = lambda_CG * self.LinearScaleInvarianceFramework(torch.exp(prediction_S), gt_S, mask_S, 0.5)
+            # S_loss = lambda_CG * self.ScaleInvarianceFramework(prediction_S, torch.log(gt_S), mask_S, 0.5)  
 
             reconstr_loss = lambda_CG  * self.w_reconstr * self.SUNCGReconstLoss(torch.exp(prediction_R), torch.exp(prediction_S), mask_img, targets)
             
