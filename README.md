@@ -41,7 +41,7 @@ Since it seems some people have difficulty running evaluation, we provide precom
 http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/cgi_pred_saw.zip
 * To get evalution results on SAW test set, download SAW dataset and run
 ```bash
-    python compute_iiw_whdr.py
+    python compute_saw_ap.py
 ```
 You need modify 'full_root' in this script and to point to the SAW directory you download. To evlaute on unweighted AP% described in the paper, set 'mode = 0' in compute_saw_ap.py and to evaluate on weighted (chanllenging) AP% described in the paper, set 'mode=1' in compute_saw_ap.py.
 
