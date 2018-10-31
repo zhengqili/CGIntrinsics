@@ -29,6 +29,14 @@ The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-p
 ```bash
     python train.py
 ```
+#### UPDATES: EASY WAY to get predictions on the IIW/SAW test sets:
+Since it seems some people have difficulty running evaluation, we provide precomputed predictions on IIW test set and SAW test set (SAW will be released very soon). 
+* You need to download precomputed predictions in hdf5 format in http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/cgi_pred_iiw.zip
+*To get evalution results on IIW test set, download IIW dataset and run
+```bash
+    python compute_iiw_whdr.py
+```
+(you might need to change judgement_path in this python script to fit to your IIW data path)
 
 #### Evaluation on the IIW/SAW test splits:
 * Download IIW densely connected pair-wise juedgement we precomputed in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/IIW.zip) and original images and data in original IIW link (http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download). 
@@ -45,4 +53,4 @@ The code skeleton is based on "https://github.com/junyanz/pytorch-CycleGAN-and-p
 ```bash
     python test_saw.py
 ```
-Note that we only compute AP% (challenge) mentioned in the paper. If you want to compute original AP%, please refer to https://github.com/lixx2938/unsupervised-learning-intrinsic-images
+Note that we only compute AP% (challenge) descirbed in the paper. If you want to compute original AP%, please refer to https://github.com/lixx2938/unsupervised-learning-intrinsic-images
