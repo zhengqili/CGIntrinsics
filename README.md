@@ -45,10 +45,7 @@ Since it seems some people have difficulty running evaluation, we provide precom
 * Change to "self.isTrain = False" in python file "/options/train_options.py"
 * In CGIntrinsics, you should have at least 2 folders (1) IIW (2) SAW. You should put original IIW png and json you download from http://opensurfaces.cs.cornell.edu/publications/intrinsic/#download in CGIntrinsics/IIW/data/, and you should put original corresponding folders you download from https://github.com/kovibalu/saw_release in folders "CGIntrinsics/SAW/saw_images_512" and "CGIntrinsics/SAW/saw_pixel_labels".
 * Change to "self.isTrain = False" in python file "/options/train_options.py"
-* To run evaluation on IIW test split,, change the path variable "root" and "full_root" and run:
-```bash
-    python test_iiw.py
-```
+
 * To run evaluation on SAW test split, change the path variable "root" and "full_root" and run:
 ```bash
     python test_saw.py
