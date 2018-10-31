@@ -38,7 +38,7 @@ Since it seems some people have difficulty running evaluation, we provide precom
 ```
 (you might need to change judgement_path in this python script to fit to your IIW data path)
 
-#### Evaluation on the IIW/SAW test splits:
+#### Evaluation on the SAW test set:
 * Download SAW list in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/SAW.zip) and original data in original SAW website (https://github.com/kovibalu/saw_release).
 * Download pretrained model from http://www.cs.cornell.edu/projects/cgintrinsics/cgintrinsics_iiw_saw_final_net_G.pth and put it in "checkpoints/test_local/cgintrinsics_iiw_saw_final_net_G.pth"
 * Change to "self.isTrain = False" in python file "/options/train_options.py"
