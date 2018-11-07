@@ -42,7 +42,7 @@ class Intrinsics_Model(BaseModel):
 
         # define tensors
         print("LOAD Unet pix2pix version")
-        output_nc = 3
+        output_nc = 1
         model = networks.define_G(opt.input_nc, output_nc, opt.ngf, 
                                         opt.which_model_netG, 'batch', opt.use_dropout, self.gpu_ids)
 
@@ -253,8 +253,8 @@ class Intrinsics_Model(BaseModel):
             # end of prediction
 
             # output_path = root + '/phoenix/S6/zl548/SAW/prediction/' + str(photo_id) + ".png.h5"
-            prediction_Sr = torch.exp(prediction_S)
-            # prediction_Sr = torch.pow(prediction_Sr, 0.4545)
+            prediction_Sr = torch.exp(prediction_S * 0.4545)
+
             prediction_S_np = prediction_Sr.data[0,0,:,:].cpu().numpy() 
             prediction_S_np = resize(prediction_S_np, (original_h, original_w), order=1, preserve_range=True)
 
