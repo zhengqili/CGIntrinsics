@@ -27,14 +27,14 @@ root = "/home/zl548/phoenix24/"
 full_root = root +'/phoenix/S6/zl548/'
 
 train_list_CGIntrinsics = full_root + '/CGIntrinsics/intrinsics_final/train_list/'
-data_loader_S = CreateDataLoaderCGIntrinsics(full_root, train_list_CGIntrinsics)
+data_loader_S = CreateDataLoaderCGIntrinsics(full_root, train_list_CGIntrinsics, batch_size)
 
-train_list_Render = full_root + '/CGIntrinsics/intrinsics/render_list/'
-data_loader_Render = CreateDataLoaderRender(full_root, train_list_Render)
+train_list_Render = full_root + '/CGIntrinsics/intrinsics_final/render_list/'
+data_loader_Render = CreateDataLoaderRender(full_root, train_list_Render, batch_size)
 
 if train_on_IIW:
     train_list_IIW = full_root + '/CGIntrinsics/IIW/train_list/'
-    data_loader_IIW = CreateDataLoaderIIW(full_root, train_list_IIW, 0)
+    data_loader_IIW = CreateDataLoaderIIW(full_root, train_list_IIW, 0, batch_size)
     dataset_IIW = data_loader_IIW.load_data()
     dataset_size_IIW = len(data_loader_IIW)
     print('#train_list_IIW images = %d' % dataset_size_IIW)
@@ -42,7 +42,7 @@ if train_on_IIW:
 
 if train_on_SAW:
     train_list_SAW = full_root + '/CGIntrinsics/SAW/train_list/'
-    data_loader_SAW = CreateDataLoaderSAW(full_root, train_list_SAW, 0)
+    data_loader_SAW = CreateDataLoaderSAW(full_root, train_list_SAW, 0, batch_size)
     dataset_SAW = data_loader_SAW.load_data()
     dataset_size_SAW = len(data_loader_SAW)
     print('#train_list_SAW images = %d' % dataset_size_SAW)
@@ -90,7 +90,6 @@ num_orientation = 5
 
 
 for epoch in range(0, 50):
-    
     if epoch > 0 and epoch % 16 ==0:
         model.scaled_learning_rate(rate=2.)
 
