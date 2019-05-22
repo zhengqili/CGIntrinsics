@@ -61,3 +61,6 @@ You need modify 'full_root' in this script and to point to the SAW directory you
     python test_saw.py
 ```
 Note that we only compute AP% (challenge) descirbed in the paper. If you want to compute original AP%, please refer to https://github.com/lixx2938/unsupervised-learning-intrinsic-images
+
+#### Tonemapping code described in our paper:
+https://github.com/snavely/pbrs_tonemapper
