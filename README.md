@@ -47,7 +47,6 @@ http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/cgi_saw.zip
 ```
 You need modify 'full_root' in this script and to point to the SAW directory you download. To evlaute on unweighted AP% described in the paper, set 'mode = 0' in compute_saw_ap.py and to evaluate on weighted (chanllenging) AP% described in the paper, set 'mode=1' in compute_saw_ap.py.
 
-* Note: our released model was trained on public released CGI dataset, and if you run on SAW test set, you will get 99.11% for unweighted AP% and 97.93% for weighted AP%, which is slightly better than what was described in the original ECCV camera ready paper. We have updated paper in ArXiv to reflect this change.
 
 #### Evaluation on the SAW test set:
 * Download SAW list in our website (http://www.cs.cornell.edu/projects/megadepth/dataset/cgintrinsics/SAW.zip) and original data in original SAW website (https://github.com/kovibalu/saw_release).
