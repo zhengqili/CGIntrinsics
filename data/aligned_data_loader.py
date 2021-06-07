@@ -373,12 +373,12 @@ class IIWData(object):
         return {'img_1': final_img, 'target_1': target_1}
 
 class CGIntrinsics_DataLoader(BaseDataLoader):
-    def __init__(self,_root, _list_dir):
+    def __init__(self,_root, _list_dir, batch_size):
         transform = None
         dataset = CGIntrinsicsImageFolder(root=_root, \
                 list_dir =_list_dir)
 
-        self.data_loader = torch.utils.data.DataLoader(dataset, batch_size=16, shuffle= True, num_workers=int(2))
+        self.data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle= True, num_workers=int(2))
         self.dataset = dataset
         flip = False    
         self.paired_data = CGIntrinsicsData(self.data_loader, _root)
@@ -395,7 +395,7 @@ class CGIntrinsics_DataLoader(BaseDataLoader):
 
 
 class SAWDataLoader(BaseDataLoader):
-    def __init__(self,_root, _list_dir, mode):
+    def __init__(self,_root, _list_dir, mode, batch_size=16):
         # BaseDataLoader.initialize(self)
         # self.fineSize = opt.fineSize
 
@@ -404,7 +404,7 @@ class SAWDataLoader(BaseDataLoader):
         dataset = SAW_ImageFolder(root=_root, \
                 list_dir =_list_dir, mode = mode, is_flip = True, transform=transform)
 
-        data_loader = torch.utils.data.DataLoader(dataset, batch_size= 16, shuffle= True, num_workers=int(2))
+        data_loader = torch.utils.data.DataLoader(dataset, batch_size= batch_size, shuffle= True, num_workers=int(2))
 
         self.dataset = dataset
         # flip = False
@@ -421,7 +421,7 @@ class SAWDataLoader(BaseDataLoader):
 
 
 class IIWDataLoader(BaseDataLoader):
-    def __init__(self,_root, _list_dir, mode):
+    def __init__(self,_root, _list_dir, mode, batch_size=16):
         # BaseDataLoader.initialize(self)
         # self.fineSize = opt.fineSize
 
@@ -440,7 +440,7 @@ class IIWDataLoader(BaseDataLoader):
         dataset = IIW_ImageFolder(root=_root, \
                     list_dir =_list_dir, mode = mode, is_flip = True, transform=transform)
 
-        data_loader = torch.utils.data.DataLoader(dataset, batch_size= 16, shuffle= True, num_workers=int(2))
+        data_loader = torch.utils.data.DataLoader(dataset, batch_size= batch_size, shuffle= True, num_workers=int(2))
 
         self.dataset = dataset
         flip = False
@@ -457,14 +457,14 @@ class IIWDataLoader(BaseDataLoader):
 
 
 class RenderDataLoader(BaseDataLoader):
-    def __init__(self,_root, _list_dir):
+    def __init__(self,_root, _list_dir, batch_size=16):
         # BaseDataLoader.initialize(self)
         transform = None
 
         dataset = Render_ImageFolder(root=_root, \
                 list_dir =_list_dir, transform=transform)
 
-        self.data_loader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle= True, num_workers=int(1))
+        self.data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle= True, num_workers=int(1))
         self.dataset = dataset
 
     def name(self):
@@ -478,13 +478,13 @@ class RenderDataLoader(BaseDataLoader):
 
 
 class IIWTESTDataLoader(BaseDataLoader):
-    def __init__(self,_root, _list_dir, mode):
+    def __init__(self,_root, _list_dir, mode, batch_size=16):
 
         transform = None
         dataset = IIW_ImageFolder(root=_root, \
                 list_dir =_list_dir, mode= mode, is_flip = False, transform=transform)
 
-        data_loader = torch.utils.data.DataLoader(dataset, batch_size=16, shuffle= False, num_workers=int(1))
+        data_loader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle= False, num_workers=int(1))
         self.dataset = dataset
         self.iiw_data = IIWTestData(data_loader)
 
